@@ -1,0 +1,48 @@
+<div class="container">
+    <div class="row">
+            <mat-toolbar color="primary" >    
+            <span>Registra Editorial</span>    
+            </mat-toolbar>  
+    </div>
+    <div  class="row"  style="margin-top: 3%">
+                <mat-form-field class="col-md-4">
+                    <mat-label>Razon Social</mat-label>
+                    <input  matInput [(ngModel)]="objEditorial.razonSocial" >
+                </mat-form-field>
+
+                <mat-form-field class="col-md-4">
+                    <mat-label>Direccion</mat-label>
+                    <input  matInput [(ngModel)]="objEditorial.direccion" >
+                </mat-form-field>
+
+                <mat-form-field class="col-md-4">
+                    <mat-label>Ruc</mat-label>
+                    <input  matInput [(ngModel)]="objEditorial.ruc" >
+                </mat-form-field>
+
+                <mat-form-field class="col-md-4">
+                    <mat-label>Gerente</mat-label>
+                    <input  matInput [(ngModel)]="objEditorial.gerente" >
+                </mat-form-field>
+                
+                <input matInput [matDatepicker]="picker" [(ngModel)]="objEditorial.fechaCreacion">
+                    <mat-hint>MM/DD/YYYY</mat-hint>
+                    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+
+                <mat-form-field class="col-md-4">
+                    <mat-label>País</mat-label>
+                   <mat-select [(ngModel)]="objEditorial.pais!.idPais">
+                        <mat-option value="-1"> [Seleccione] </mat-option>
+                        <mat-option *ngFor="let x of lstPais" [value]="x.idPais">
+                            {{x.nombre}}
+                        </mat-option>
+                    </mat-select> 
+                </mat-form-field> 
+    </div>
+    <div  class="row" >
+        <button mat-raised-button type="submit" color="primary" (click)="registraEditorial()">
+            Registra
+        </button>
+  </div>
+</div>
